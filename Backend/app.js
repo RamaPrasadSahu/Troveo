@@ -1,7 +1,7 @@
 import express from "express"
 import cors from "cors"
 import cookieParser from "cookie-parser"    
-
+import errorHandler from "./src/middleware/ErrorHandler.middleware.js"
 const app =express()
 
 app.use(cors({
@@ -14,6 +14,7 @@ app.use(express.urlencoded({extended : true , limit : "16kb" }))
 app.use(cookieParser())
 
 import Userrouter from "./src/routes/user.routes,js"
+app.use(errorHandler)
 import authrouter from "./src/routes/auth.route.js"
 import Adminrouter from "./src/routes/AdminDashboard.routes.js"
 import Cartrouter from "./src/routes/Cart.routes.js"
